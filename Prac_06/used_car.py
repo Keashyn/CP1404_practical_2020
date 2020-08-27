@@ -1,4 +1,4 @@
-from Practicals.prac_06.car import Car
+from Prac_06.car import car
 
 
 def main():
