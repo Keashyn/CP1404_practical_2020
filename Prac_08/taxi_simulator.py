@@ -1,5 +1,5 @@
 from Prac_08.silver_Service_taxi import SilverServiceTaxi
-from Prac_08.taxi import Taxi
+from .taxi import Taxi
 def main():
     Menu="C: Choose Taxi\nD:Drive\nQ:Quit"
     taxies=[Taxi("Bmw",100),SilverTaxiService("Truck",100,2),SilverSeviceTaxi("Hummer",200,4)]
