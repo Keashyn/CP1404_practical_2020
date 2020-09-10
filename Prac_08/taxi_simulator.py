@@ -1,8 +1,8 @@
 from Prac_08.silver_taxi_service import Silver_Taxi_serivice
-from .taxi import Taxi
+from Prac_08.taxi import Taxi
 def main():
     Menu="C: Choose Taxi\nD:Drive\nQ:Quit"
-    taxies=[Taxi("Bmw",100),SilverTaxiService("Truck",100,2),Silver_Taxi_serivice("Hummer",200,4)]
+    taxis=[Taxi("Bmw",100),Silver_Taxi_serivice("Truck",100,2),Silver_Taxi_serivice("Hummer",200,4)]
     fare=0
     print(Menu)
     user_choice=input(">>>").upper()
@@ -10,7 +10,7 @@ def main():
         if user_choice =="C":
             taxi_number=0
             print("Taxi's are avalaiable")
-            for taxi in taxies:
+            for taxi in taxis:
                 print("{}-{}".format(taxi_number,taxi))
                 taxi_number +=1
             taxi_choice=int(input("Choose Taxi:"))
@@ -18,7 +18,7 @@ def main():
         elif user_choice =="D":
             distance=int(input("Drive how far?"))
             taxies[taxi_choice].drive(distance)
-            fare+=taxies[taxi_choice].get_fuel()
+            fare+=taxis[taxi_choice].get_fuel()
             print("Your taxi will cost you ${:.2f}".format(fare))
         print(Menu)
         user_choice=input(">>>")
@@ -29,5 +29,4 @@ def main():
         print("{}-{}".format(taxi_number,taxi))
         taxi_number++1
         """elif user_choice == "D":"""
-main()
-
+    main()
