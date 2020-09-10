@@ -1,6 +1,10 @@
 from Prac_08.unreliable_car import UnreliableCar
-def main():
-    car=UnreliableCar("Car",100,30)
-    car.drive(110)
-    print(car)
-main(0)
+
+
+taxi_one = UnreliableCar("Prius 1", 100, 0)
+taxi_one.drive(40)
+print(taxi_one)
+
+taxi_two = UnreliableCar("Prius 2", 100, 100)
+taxi_two.drive(40)
+print(taxi_two)

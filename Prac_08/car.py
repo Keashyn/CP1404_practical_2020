@@ -1,15 +1,20 @@
 """CP1404/CP5632 Practical - Car class example."""
 
+
 class Car:
     """Represent a Car object."""
 
-    def __init__(self, vehicle = "", fuel=0):
+    def __init__(self, name='', fuel=0, ):
         """Initialise a Car instance.
+
         fuel: float, one unit of fuel drives one kilometre
         """
-        self.vehicle = vehicle
+        self.name = name
         self.fuel = fuel
         self.odometer = 0
+
+    def __str__(self):
+        return "{self.name}, fuel={self.fuel}, odometer={self.odometer}".format(self=self)
 
     def add_fuel(self, amount):
         """Add amount to the car's fuel."""
@@ -17,6 +22,7 @@ class Car:
 
     def drive(self, distance):
         """Drive the car a given distance.
+
         Drive given distance if car has enough fuel
         or drive until fuel runs out return the distance actually driven.
         """
@@ -26,7 +32,5 @@ class Car:
         else:
             self.fuel -= distance
         self.odometer += distance
-        return(distance)
+        return distance
 
-    def __str__(self):
-        return "{}, fuel={}, odemeter={}".format(self.vehicle,self.fuel,self.odometer)

@@ -1,32 +1,40 @@
-from Prac_08.silver_taxi_service import Silver_Taxi_serivice
 from Prac_08.taxi import Taxi
+from Prac_08.silver_service_taxi import SilverServiceTaxi
+
+
+Taxi.price_per_km = 1.20
+
+
 def main():
-    Menu="C: Choose Taxi\nD:Drive\nQ:Quit"
-    taxis=[Taxi("Bmw",100),Silver_Taxi_serivice("Truck",100,2),Silver_Taxi_serivice("Hummer",200,4)]
-    fare=0
-    print(Menu)
-    user_choice=input(">>>").upper()
-    while user_choice != "Q":
-        if user_choice =="C":
-            taxi_number=0
-            print("Taxi's are avalaiable")
-            for taxi in taxis:
-                print("{}-{}".format(taxi_number,taxi))
-                taxi_number +=1
-            taxi_choice=int(input("Choose Taxi:"))
-            print("Bill to date ${:.2f}".format(fare))
-        elif user_choice =="D":
-            distance=int(input("Drive how far?"))
-            taxies[taxi_choice].drive(distance)
-            fare+=taxis[taxi_choice].get_fuel()
-            print("Your taxi will cost you ${:.2f}".format(fare))
-        print(Menu)
-        user_choice=input(">>>")
-    print("Total trip of cost is ${:.2f}".format(fare))
-    print("Taxi's are now:")
-    for taxi in taxies:
-        taxi_number=0
-        print("{}-{}".format(taxi_number,taxi))
-        taxi_number++1
-        """elif user_choice == "D":"""
-    main()
+    taxis = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2), SilverServiceTaxi("Hummer", 200, 4)]
+    total_bill = 0
+    print("Let's drive!")
+    print("q)uit, c)hoose taxi, d)rive")
+    menu_choice = str(input(">>> ").lower())
+    while menu_choice != "q":
+        if menu_choice == "c":
+            print("Taxis available:")
+            taxi_information(taxis)
+            taxi_choice = int(input("Choose taxi: "))
+            print("Bill to date: ${:.2f}".format(total_bill))
+        elif menu_choice == "d":
+            current_taxi = taxis[taxi_choice]
+            current_taxi.start_fare()
+            distance_to_travel = int(input("Drive how far? "))
+            current_taxi.drive(distance_to_travel)
+            current_fare = current_taxi.get_fare()
+            total_bill += current_fare
+            print("Your {} trip cost you ${:.2f}".format(current_taxi.name, current_fare))
+            print("Bill to date: ${:.2f}".format(total_bill))
+        print("q)uit, c)hoose taxi, d)rive")
+        menu_choice = str(input(">>> ").lower())
+    print("Total trip cost: ${:.2f}".format(total_bill))
+    print("Taxis are now: ")
+    taxi_information(taxis)
+
+
+def taxi_information(taxis):
+    for i, taxi in enumerate(taxis):
+        print("{} - {}".format(i, taxi))
+
+main()

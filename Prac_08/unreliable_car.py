@@ -1,12 +1,16 @@
 from Prac_08.car import Car
-from random import randint
+import random
+
+
 class UnreliableCar(Car):
-    def __init__(self,name,fuel,reliablity):
-        super().__init__(name,fuel)
-        self.reliablity = reliablity
+    def __init__(self, name="", fuel=0, reliability=random.uniform(0, 100)):
+        super().__init__(name, fuel)
+        self.reliability = reliability
+
     def drive(self, distance):
-        drvie_percentage = randint(0,100)
-        distance_driven=0
-        if self.reliablity>drive_percentage:
-            distance_driven=super().drive(distance)
+        chance_to_drive = random.uniform(0, 100)
+        if chance_to_drive > self.reliability:
+            distance_driven = super().drive(distance)
+        else:
+            distance_driven = 0
         return distance_driven
