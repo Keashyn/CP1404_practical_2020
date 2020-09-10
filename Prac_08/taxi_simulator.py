@@ -20,7 +20,7 @@ def main():
         if menu_choice == "c":
             print("Taxis available: ")
             display_taxis(taxis)
-            # no error-checking
+            """ no error-checking"""
             taxi_choice = int(input("Choose taxi: "))
             current_taxi = taxis[taxi_choice]
         elif menu_choice == "d":
@@ -31,8 +31,7 @@ def main():
                 distance_to_drive = float(input("Drive how far? "))
                 current_taxi.drive(distance_to_drive)
                 trip_cost = current_taxi.get_fare()
-                print("Your {} trip cost you ${:.2f}".format(current_taxi.name,
-                                                             trip_cost))
+                print("Your {} trip cost you ${:.2f}".format(current_taxi.name,trip_cost))
                 total_bill += trip_cost
         else:
             print("Invalid option")
@@ -62,7 +61,7 @@ def run_tests():
     print("odo = ", bus.odometer)
     print(bus)
 
-    # drive bus (input/loop is oblivious to fuel)
+    """drive bus (input/loop is oblivious to fuel)"""
     distance = int(input("Drive how far? "))
     while distance > 0:
         travelled = bus.drive(distance)
