@@ -1,8 +1,8 @@
-from Prac_08.silver_Service_taxi import SilverServiceTaxi
+from Prac_08.silver_taxi_service import Silver_Taxi_serivice
 from .taxi import Taxi
 def main():
     Menu="C: Choose Taxi\nD:Drive\nQ:Quit"
-    taxies=[Taxi("Bmw",100),SilverTaxiService("Truck",100,2),SilverSeviceTaxi("Hummer",200,4)]
+    taxies=[Taxi("Bmw",100),SilverTaxiService("Truck",100,2),Silver_Taxi_serivice("Hummer",200,4)]
     fare=0
     print(Menu)
     user_choice=input(">>>").upper()
